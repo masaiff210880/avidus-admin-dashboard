@@ -1,0 +1,56 @@
+{
+  "roles": {
+    "admin": {
+      "label": "Administrator",
+      "routes": [
+        {
+          "path": "/dashboard",
+          "name": "Dashboard",
+          "icon": "dashboard",
+          "component": "Dashboard",
+          "roles": ["admin", "user"]
+        },
+        {
+          "path": "/users",
+          "name": "User Management",
+          "icon": "users",
+          "component": "UserManagement",
+          "roles": ["admin"]
+        },
+        {
+          "path": "/tasks",
+          "name": "Task Monitoring",
+          "icon": "tasks",
+          "component": "TaskMonitoring",
+          "roles": ["admin", "user"]
+        },
+        {
+          "path": "/activity",
+          "name": "Activity Logs",
+          "icon": "activity",
+          "component": "ActivityLogs",
+          "roles": ["admin"]
+        }
+      ]
+    },
+    "user": {
+      "label": "Standard User",
+      "routes": [
+        {
+          "path": "/dashboard",
+          "name": "Dashboard",
+          "icon": "dashboard",
+          "component": "Dashboard",
+          "roles": ["admin", "user"]
+        },
+        {
+          "path": "/tasks",
+          "name": "Task Monitoring",
+          "icon": "tasks",
+          "component": "TaskMonitoring",
+          "roles": ["admin", "user"]
+        }
+      ]
+    }
+  }
+}
