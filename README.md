@@ -1,16 +1,106 @@
-# React + Vite
+# Avidus Frontend Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A role-based admin dashboard for managing users, tasks, and activity logs. Built with React and connected to a REST API via Redux Toolkit.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Frontend:** [https://avidus-admin-dashboard.vercel.app/](https://avidus-admin-dashboard.vercel.app/)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Category | Technology |
+|----------|------------|
+| Framework | React 19 |
+| Build Tool | Vite |
+| Routing | React Router |
+| State & API | Redux Toolkit (RTK Query) |
+| Styling | Tailwind CSS v4 |
+| Linting | ESLint |
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Authentication** — Login, signup, and protected routes
+- **Dashboard** — Overview stats, recent tasks, and activity
+- **User Management** — Create, activate/deactivate, delete users (admin)
+- **User Tasks** — View and manage tasks for a specific user
+- **Task Monitoring** — Create, view, edit, and delete tasks
+- **Activity Logs** — View platform activity history (admin)
+- **404 Page** — Custom not-found page with auto-redirect
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+VITE_BASE_URL=https://your-api-url.com/api/
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── context/          # Auth & toast providers
+├── hooks/            # Custom hooks
+├── layouts/          # Auth & dashboard layouts
+├── modals/           # Modal forms (create/edit/view)
+├── pages/            # Route pages
+├── redux-toolkit/    # RTK Query API & store
+└── utils/            # Helpers (validation, dates, actions)
+```
+
+## API Integration
+
+API calls are handled with **RTK Query** in `src/redux-toolkit/service.js`. Endpoints are defined as queries and mutations, with automatic caching and tag-based invalidation.
+
+Auth tokens are stored in cookies and attached to requests via `prepareHeaders`.
+
+## Styling
+
+The UI uses **Tailwind CSS** utility classes. Global styles live in `src/index.css`. Shared components (buttons, badges, modals, tables) keep the design consistent across pages.
+
+## Deployment
+
+The project includes a `vercel.json` for SPA routing so client-side routes work correctly on Vercel.
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
