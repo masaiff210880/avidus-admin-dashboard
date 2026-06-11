@@ -11,6 +11,7 @@ import UserTasks from './pages/UserTasks'
 import TaskMonitoring from './pages/TaskMonitoring'
 import ActivityLogs from './pages/ActivityLogs'
 import Unauthorized from './pages/Unauthorized'
+import NotFound from './pages/NotFound'
 
 function GuestOnly({ children }) {
   const { isAuthenticated } = useAuth()
@@ -59,7 +60,7 @@ export default function App() {
       </Route>
 
       <Route path="/unauthorized" element={<Unauthorized />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
