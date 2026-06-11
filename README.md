@@ -4,7 +4,16 @@ A role-based admin dashboard for managing users, tasks, and activity logs. Built
 
 ## Live Demo
 
-**Frontend:** [https://avidus-admin-dashboard.vercel.app/](https://avidus-admin-dashboard.vercel.app/)
+| | URL |
+|---|-----|
+| **Frontend** | [https://avidus-admin-dashboard.vercel.app/](https://avidus-admin-dashboard.vercel.app/) |
+| **Backend API** | [https://avidus-backend-799e.onrender.com/api/](https://avidus-backend-799e.onrender.com/api/) |
+
+## Backend Repository
+
+This frontend connects to the [Avidus Backend API](https://github.com/masaiff210880/avidus-backend) — a Node.js + Express + MongoDB REST API with JWT auth, role-based access control, and activity tracking.
+
+**Repo:** [https://github.com/masaiff210880/avidus-backend](https://github.com/masaiff210880/avidus-backend)
 
 ## Tech Stack
 
@@ -45,7 +54,7 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-VITE_BASE_URL=https://your-api-url.com/api/
+VITE_BASE_URL=https://avidus-backend-799e.onrender.com/api/
 ```
 
 ### Development
