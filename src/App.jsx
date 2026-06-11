@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import UserManagement from './pages/UserManagement'
+import UserTasks from './pages/UserTasks'
 import TaskMonitoring from './pages/TaskMonitoring'
 import ActivityLogs from './pages/ActivityLogs'
 import Unauthorized from './pages/Unauthorized'
@@ -52,6 +53,7 @@ export default function App() {
       >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/users" element={<UserManagement />} />
+        <Route path="/users/:userId/tasks" element={<UserTasks />} />
         <Route path="/tasks" element={<TaskMonitoring />} />
         <Route path="/activity" element={<ActivityLogs />} />
       </Route>

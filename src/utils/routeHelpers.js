@@ -8,7 +8,16 @@ export function getMenuForRole(role) {
 
 export function canAccessRoute(role, path) {
   const menu = getMenuForRole(role)
-  return menu.some((route) => route.path === path)
+
+  if (menu.some((route) => route.path === path)) {
+    return true
+  }
+
+  if (/^\/users\/[^/]+\/tasks$/.test(path)) {
+    return menu.some((route) => route.path === '/users')
+  }
+
+  return false
 }
 
 export function getAllRoutes() {

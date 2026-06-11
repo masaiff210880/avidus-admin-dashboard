@@ -71,6 +71,11 @@ export const avidusApi = createApi({
       providesTags: ["Tasks"],
     }),
 
+    fetchUserTasks: builder.query({
+      query: (userId) => `/task/user-tasks/${userId}`,
+      providesTags: (_result, _error, userId) => [{ type: "Tasks", id: `user-${userId}` }],
+    }),
+
     createTask: builder.mutation({
       query: (taskData) => ({
         url: "/task/create-task",
@@ -118,6 +123,7 @@ export const {
   useUpdateUserStatusMutation,
   useFetchActivityLogsQuery,
   useFetchAllTasksQuery,
+  useFetchUserTasksQuery,
   useCreateTaskMutation,
   useFetchTaskByIdQuery,
   useUpdateTaskMutation,

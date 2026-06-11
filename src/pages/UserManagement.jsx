@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 import {
   useDeleteUserMutation,
   useFetchAllUsersQuery,
@@ -14,11 +15,19 @@ import { formatDateTime } from '../utils/date'
 import { getUserActionOptions } from '../utils/userActions'
 
 export default function UserManagement() {
+  const navigate = useNavigate()
   const { showToast } = useToast()
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const { data, isLoading, isError, error } = useFetchAllUsersQuery()
   const [deleteUser] = useDeleteUserMutation()
   const [updateUserStatus] = useUpdateUserStatusMutation()
+
+  const handleViewTasks = (user) => {
+    const userId = user._id || user.id
+    navigate(`/users/${userId}/tasks`, {
+      state: { userName: user.name, userEmail: user.email },
+    })
+  }
 
   const handleStatusChange = async (user, newStatus) => {
     const { password, ...safeUser } = user
@@ -134,6 +143,7 @@ export default function UserManagement() {
                       <td className="relative px-4 py-3.5 sm:px-6">
                         <ActionMenu
                           options={getUserActionOptions(user, {
+                            onViewTasks: handleViewTasks,
                             onStatusChange: handleStatusChange,
                             onDelete: handleDelete,
                           })}
